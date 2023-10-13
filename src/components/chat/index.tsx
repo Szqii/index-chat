@@ -14,6 +14,7 @@ export const IndexChat = (props: {
     return (
         <>
             <button
+                data-testid="index-chat-button"
                 style={{...props.style}}
                 onClick={() => setIsChatPopupOpen(!isChatPopupOpen)}
                 className="bg-text shadow-lg hover:scale-110 font-bold p-4 rounded-full absolute bottom-12 right-12 transition">
