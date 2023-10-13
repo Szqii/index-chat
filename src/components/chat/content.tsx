@@ -4,7 +4,7 @@ import {AssistantMessage} from "@/components/chat/assistant-message";
 import {PaperAirplaneIcon} from "@heroicons/react/20/solid";
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
-import {API_URL, DEFAULT_THREAD} from "@/constants";
+import {DEFAULT_THREAD} from "@/constants";
 import {Message, Thread} from "@/types";
 
 export const Content = (
@@ -34,8 +34,8 @@ export const Content = (
     }, [thread.messages.length])
 
     const getIndex = async () => {
-        const {data} = await axios.get(API_URL + "kjzl6kcym7w8y9obp8tq6cqa5rgkkcyyohtxj83p8m1zr0m7fyjrwfiav4xi333")
-        // console.log('data', data)
+        const {data} = await axios.get(process.env.NEXT_PUBLIC_INDEX_API_URL + "kjzl6kcym7w8y9obp8tq6cqa5rgkkcyyohtxj83p8m1zr0m7fyjrwfiav4xi333")
+        console.log('data', data)
     }
     const sendMessage = async () => {
         if (!message || isAiTyping) return
@@ -54,7 +54,7 @@ export const Content = (
         await fetchData(newThread)
     }
     // const fetchEventStream = async () => {
-    //     await fetchEventSource('https://index.network/api/chat_stream', {
+    //     await fetchEventSource(process.env.NEXT_PUBLIC_INDEX_SEND_MESSAGE_API_URL as string, {
     //         method: 'POST',
     //         signal: controller.signal,
     //         body: JSON.stringify({
@@ -95,7 +95,7 @@ export const Content = (
 
     const fetchData = async (thread: Thread) => {
         setIsAiTyping(true)
-        const {data} = await axios.post("https://index.network/api/chat_stream", thread)
+        const {data} = await axios.post(process.env.NEXT_PUBLIC_INDEX_SEND_MESSAGE_API_URL as string, thread)
         setThread((thread) => (
             {
                 ...thread,

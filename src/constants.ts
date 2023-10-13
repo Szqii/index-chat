@@ -1,7 +1,5 @@
 import {Thread} from "@/types";
 
-export const API_URL = 'https://index.network/api/indexes/'
-
 export const DEFAULT_THREAD: Thread = {
     id: "random-b56998d5",
     messages: [],
