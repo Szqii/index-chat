@@ -17,6 +17,7 @@ It provides best-designed chat experience for your users.
 - [x] **_Fully customizable_**: You can customize the look and feel of the chat
 - [x] **_No dependencies_**: Index Chat has no dependencies except Hero Icons
 - [x] **_User-friendly chatting experience_**: Index Chat is designed to be user-friendly
+- [x] **_Unit Tests_**: Index Chat has unit tests
 - [ ] Event streaming
 
 ## Screenshots
