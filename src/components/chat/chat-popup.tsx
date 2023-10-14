@@ -29,7 +29,8 @@ export const ChatPopup = (props: {
 
     return (
         <div className={'h-screen w-screen bg-black/[.5] absolute flex justify-center items-center'}
-             data-testid="index-chat-popup">
+             data-testid="index-chat-popup"
+        >
             <div
                 ref={popupContainerRef}
                 className={'flex flex-col h-[560px] max-w-full w-3/4 md:w-[560px] rounded-sm bg-white text-black p-4'}>

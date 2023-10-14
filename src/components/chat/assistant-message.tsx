@@ -24,7 +24,7 @@ export const AssistantMessage = ({message, isLast, isTyping, regenerateResponse}
     }
 
     return (
-        <div>
+        <div data-testid={'assistant-message'}>
             <div className={'w-full flex items-center py-6' + (!isLast ? ' border-b border-gray-200' : '')}>
                 <div className={'w-6 h-6 mr-3 border flex items-center justify-center rounded-sm self-start'}>
                     <img
@@ -40,9 +40,14 @@ export const AssistantMessage = ({message, isLast, isTyping, regenerateResponse}
                             {message}
                         </div>
                         {isLast && <div className={'self-baseline ms-2'}>
-                            <div className={'cursor-pointer mb-4'} onClick={_copyToClipboard}>
-                                {isCopied ? <ClipboardDocumentCheckIcon className={'w-5 h-5'}/> :
-                                    <ClipboardDocumentIcon className={'w-5 h-5'}/>}
+                            <div className={'cursor-pointer mb-4'} onClick={_copyToClipboard}
+                                 data-testid={'copy-message-button'}>
+                                {isCopied
+                                    ? <div data-testid={'clipboard-check'}>
+                                        <ClipboardDocumentCheckIcon className={'w-5 h-5'}/>
+                                    </div>
+                                    : <ClipboardDocumentIcon className={'w-5 h-5'}/>
+                                }
                             </div>
 
                             <div className={'cursor-pointer'} onClick={regenerateResponse}>

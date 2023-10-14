@@ -2,6 +2,7 @@ import {MutableRefObject, useEffect, useRef, useState} from "react";
 
 export const TypingDot = () => {
     const [typingDot, setTypingDotCustom] = useState<string>("")
+
     const typingDotRef: MutableRefObject<string> = useRef(typingDot)
     const intervalRef: MutableRefObject<NodeJS.Timeout> = useRef(null as any)
 
@@ -35,6 +36,6 @@ export const TypingDot = () => {
     }, [])
 
     return (
-        <span>{typingDot}</span>
+        <span data-testid={'typing-dot'}>{typingDot}</span>
     )
 }
